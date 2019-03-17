@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import itertools
 
 class Board:
     def __init__(self):
