@@ -2,8 +2,6 @@
 import itertools
 
 class Board:
-    
-
     def __init__(self):
         self.board_matrix = [["-","-","-"],
                              ["-","-","-"],
@@ -17,7 +15,6 @@ class Board:
         ret += ("   0 | {}  {}  {} \n".format(*self.board_matrix[0]))
         ret += ("------------------\n")
         ret += ("   y | 0  1  2    \n")
-
         return ret
 
     def __assert_item(self, item, list):
@@ -62,7 +59,6 @@ class Board:
         player.move += 1
         if self.check_victory(player) == True:
             self.winner = player
-
 
 class Player:
     def __init__(self, name, mark):
@@ -112,9 +108,4 @@ while board.winner == None :
 
 print(board)
 print("Winner is {}".format(board.winner.name))
-
 print("Bye")
-        
-
-
-
