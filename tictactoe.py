@@ -33,16 +33,19 @@ class Board:
         else:
             #Check all rows
             for i in self.board_matrix:
-                if bool(set(i).intersection(player.mark)):
+                if i == [player.mark,player.mark,player.mark]:
                     return True
+
             #Check all columns
+            checks=0
             for i in range(3):
-                checks=0
                 for j in range(3):
-                    if self.board_matrix[i][j]==player.mark:
+                    if self.board_matrix[j][i] == player.mark:
                         checks+=1
                         if checks == 3:
                             return True
+                checks=0
+
             #Check diagonal
             if [self.board_matrix[0][0],self.board_matrix[1][1],self.board_matrix[2][2]] == [player.mark,player.mark,player.mark]:
                 return True
@@ -98,13 +101,14 @@ while board.winner == None :
         total_moves += 1
 
         #Check for tie
-        if (total_moves == 9):
+        if (total_moves > 8):
             print("It's a tie")
             print("Now reset game")
             board.reset_game()
     except ValueError:
         print("Illegal input! Please enter again!")
+else:
+    print(board)
+    print("Winner is {}".format(board.winner.name))
 
-print(board)
-print("Winner is {}".format(board.winner.name))
 print("Bye")
